@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Chính sách & Điều khoản</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000;
+            line-height: 1.55;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-bottom: 24px;
+            box-sizing: border-box;
+        }
+
+        /* TOP BAR */
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            height: 44px;
+            padding: 0 12px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .topbar-title {
+            font-size: 15px;
+            font-weight: 400;
+            color: #333;
+        }
+
+        /* ICON HAMBURGER */
+        .menu-button {
+            width: 28px;
+            height: 28px;
+            border: none;
+            background: transparent;
+            padding: 0;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-icon {
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 3px;
+        }
+
+        .menu-icon span {
+            display: block;
+            width: 16px;
+            height: 2px;
+            background-color: #333;
+        }
+
+        .menu-button:focus {
+            outline: none;
+        }
+
+        /* SIDE PANEL + OVERLAY */
+        .side-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.25);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+            z-index: 999;
+        }
+
+        .side-overlay.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .side-panel {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 260px;
+            max-width: 80%;
+            background: #ffffff;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+
+            transform: translateX(-100%);
+            transition: transform 0.25s ease;
+            z-index: 1000;
+
+            padding-top: 44px; /* chừa chỗ cho thanh status/nav */
+        }
+
+        .side-panel.open {
+            transform: translateX(0);
+        }
+
+        .side-item {
+            width: 100%;
+            padding: 10px 16px;
+            font-size: 15px;
+            text-align: left;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .side-item + .side-item {
+            border-top: 1px solid #f2f2f2;
+        }
+
+        .side-item.active {
+            font-weight: 600;
+            background: #f5f5f5;
+        }
+
+        .side-item:focus {
+            outline: none;
+        }
+
+        /* CONTENT */
+        .content {
+            padding: 16px;
+        }
+
+        h1 {
+            text-align: left;
+            font-size: 24px;
+            font-weight: 600;
+            margin: 16px 0 24px;
+        }
+
+        h2 {
+            font-size: 19px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 8px;
+        }
+
+        h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 6px;
+        }
+
+        p, li {
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-top: 6px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- SIDE PANEL & OVERLAY -->
+<div class="side-panel" id="sidePanel">
+    <button class="side-item active" data-target="privacy">Chính sách quyền riêng tư</button>
+    <button class="side-item" data-target="terms">Điều khoản dịch vụ</button>
+</div>
+<div class="side-overlay" id="sideOverlay"></div>
+
+<div class="page">
+    <!-- TOP BAR -->
+    <header class="topbar">
+        <button class="menu-button" id="menuButton" aria-label="Mở menu">
+            <div class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+        <div class="topbar-title">Call 4G/5G</div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+        <!-- PRIVACY POLICY -->
+        <div id="privacy" class="tab-content active">
+
+            <h1>Chính sách quyền riêng tư</h1>
+
+            <p>
+                <strong>Call 4G/5G</strong> (“chúng tôi”) cam kết bảo vệ quyền riêng tư của người dùng.
+                Chính sách quyền riêng tư này giải thích cách chúng tôi thu thập, sử dụng, lưu trữ và chia sẻ thông tin cá nhân được thu thập thông qua ứng dụng di động của chúng tôi.
+            </p>
+
+            <h2>Thông tin cá nhân chúng tôi thu thập</h2>
+            <p>Chúng tôi có thể thu thập các loại thông tin cá nhân sau từ người dùng:</p>
+
+            <p>
+                1. Thông tin thiết bị: thông tin về thiết bị mà bạn sử dụng để truy cập ứng dụng, như hãng và model thiết bị, hệ điều hành và phiên bản, mã định danh thiết bị. Những thông tin này giúp chúng tôi tối ưu hiệu năng và khả năng tương thích của ứng dụng trên các thiết bị khác nhau.
+            </p>
+
+            <p>
+                2. Thông tin nhật ký: khi bạn sử dụng sản phẩm và dịch vụ của chúng tôi hoặc xem nội dung do chúng tôi cung cấp, chúng tôi tự động thu thập và lưu trữ một số thông tin nhất định trong nhật ký máy chủ, chẳng hạn như ngày giờ truy cập, các trang hoặc màn hình bạn xem, và những thao tác bạn thực hiện trong ứng dụng. Những thông tin này giúp chúng tôi hiểu cách người dùng tương tác với ứng dụng và phát hiện các vấn đề hoặc lỗi.
+            </p>
+
+            <p>
+                3. Thông tin từ bên thứ ba:
+            </p>
+
+            <p>
+                a. Thông tin tài khoản bên thứ ba: nếu bạn sử dụng tài khoản bên thứ ba (như Facebook/Google/Apple ID) để đăng nhập vào dịch vụ của chúng tôi, chúng tôi sẽ nhận một số thông tin tài khoản từ các nền tảng đó. Thông tin này được dùng để tạo tài khoản và cho phép bạn đăng nhập trực tiếp.
+            </p>
+
+            <p>
+                b. Thông tin từ đơn vị thanh toán bên thứ ba: nếu bạn thực hiện mua hàng trong ứng dụng, các nhà cung cấp dịch vụ thanh toán bên thứ ba làm việc với chúng tôi (như Apple Pay, Google Pay) sẽ cung cấp cho chúng tôi thông tin thanh toán hoặc thông tin cập nhật về thanh toán, để xác minh trạng thái thanh toán và xử lý dịch vụ trả phí cho bạn. Lưu ý: chúng tôi chỉ thu thập thông tin về sản phẩm bạn đã mua, mã giao dịch và mã kênh thanh toán, chúng tôi không thu thập số tài khoản ngân hàng, mật khẩu hoặc các thông tin thanh toán nhạy cảm khác của bạn.
+            </p>
+
+            <h2>Cách chúng tôi thu thập thông tin cá nhân</h2>
+
+            <p>Chúng tôi thu thập thông tin cá nhân khi người dùng:</p>
+
+            <p>1. Đăng ký tài khoản.</p>
+            <p>2. Sử dụng các tính năng và dịch vụ trong ứng dụng.</p>
+            <p>3. Gửi phản hồi hoặc yêu cầu hỗ trợ.</p>
+            <p>4. Tham gia khảo sát hoặc các chương trình khuyến mãi.</p>
+
+            <p>Chúng tôi cũng có thể thu thập thông tin cá nhân thông qua cookie và các công nghệ theo dõi tương tự.</p>
+
+            <h2>Cách chúng tôi sử dụng thông tin cá nhân</h2>
+
+            <p>Chúng tôi sử dụng thông tin cá nhân cho các mục đích sau:</p>
+
+            <p>1. Cải thiện tính năng và dịch vụ của ứng dụng.</p>
+            <p>2. Cho phép bạn mua sản phẩm và dịch vụ.</p>
+            <p>3. Xử lý yêu cầu đăng ký và đăng nhập của bạn.</p>
+            <p>4. Liên hệ với người dùng về các bản cập nhật và tính năng mới.</p>
+            <p>5. Phản hồi các câu hỏi và yêu cầu hỗ trợ của người dùng.</p>
+            <p>6. Tuân thủ các nghĩa vụ theo quy định của pháp luật.</p>
+
+            <h2>Cách chúng tôi lưu trữ và bảo vệ thông tin cá nhân</h2>
+
+            <p>
+                Chúng tôi lưu trữ thông tin cá nhân trên các máy chủ bảo mật và áp dụng những biện pháp hợp lý để bảo vệ khỏi truy cập, sử dụng hoặc tiết lộ trái phép. Chúng tôi chỉ lưu giữ thông tin cá nhân trong thời gian cần thiết để thực hiện các mục đích thu thập ban đầu hoặc theo yêu cầu của pháp luật.
+            </p>
+
+            <h2>Cách chúng tôi chia sẻ thông tin cá nhân</h2>
+
+            <p>Chúng tôi có thể chia sẻ thông tin cá nhân với các bên thứ ba sau:</p>
+
+            <p>1. Các nhà cung cấp dịch vụ hỗ trợ chúng tôi vận hành và cải thiện ứng dụng.</p>
+            <p>2. Các đối tác quảng cáo cung cấp quảng cáo được cá nhân hóa cho người dùng.</p>
+            <p>3. Các đơn vị phân tích giúp chúng tôi hiểu cách ứng dụng được sử dụng.</p>
+
+            <p>
+                Nếu bạn sử dụng các dịch vụ do bên thứ ba cung cấp trên nền tảng của chúng tôi, bạn đồng ý để các bên đó trực tiếp thu thập và xử lý thông tin của mình. Việc thu thập và xử lý thông tin bởi các bên này tuân theo chính sách quyền riêng tư riêng của họ như dưới đây:
+            </p>
+
+            <p>
+                1. Facebook: Đăng nhập bên thứ ba. Chính sách:
+                <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener noreferrer">
+                    https://www.facebook.com/privacy/policy
+                </a>.
+            </p>
+            <p>
+                2. Google: Đăng nhập bên thứ ba. Chính sách:
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+                    https://policies.google.com/privacy
+                </a>.
+            </p>
+            <p>
+                3. Apple: Đăng nhập bên thứ ba. Chính sách:
+                <a href="https://www.apple.com/legal/privacy/en-ww/" target="_blank" rel="noopener noreferrer">
+                    https://www.apple.com/legal/privacy/en-ww/
+                </a>.
+            </p>
+            <p>
+                4. Firebase: Phân tích dữ liệu bên thứ ba. Chính sách:
+                <a href="https://firebase.google.com/terms/" target="_blank" rel="noopener noreferrer">
+                    https://firebase.google.com/terms/
+                </a>.
+            </p>
+            <p>
+                5. AppsFlyer: Phân tích dữ liệu bên thứ ba. Chính sách:
+                <a href="https://www.appsflyer.com/privacy-policy/" target="_blank" rel="noopener noreferrer">
+                    https://www.appsflyer.com/privacy-policy/
+                </a>.
+            </p>
+
+            <p>
+                Chúng tôi sẽ cố gắng hết sức để xem xét tư cách truy cập của các đối tác bên thứ ba này và áp dụng các yêu cầu pháp lý, tuân thủ và an toàn phù hợp. Để bảo vệ tối đa thông tin của bạn, chúng tôi khuyến nghị bạn đọc kỹ chính sách quyền riêng tư của họ.
+            </p>
+
+            <p>
+                Chúng tôi cũng có thể chia sẻ thông tin cá nhân nếu pháp luật yêu cầu hoặc để bảo vệ quyền lợi hợp pháp của chúng tôi hoặc của người dùng.
+            </p>
+
+            <h2>Truy cập và xóa thông tin của bạn</h2>
+
+            <p>
+                Bạn có thể hủy kích hoạt tài khoản của mình hoặc xóa email liên kết với tài khoản bằng cách liên hệ với chúng tôi tại
+                <a href="mailto:weifu.ai.contact@gmail.com">weifu.ai.contact@gmail.com</a>.
+            </p>
+
+            <p>
+                Nếu bạn muốn truy cập hoặc xem thông tin cá nhân mà chúng tôi lưu giữ về bạn, hoặc nếu vì bất kỳ lý do gì bạn lo ngại về cách chúng tôi đang sử dụng thông tin cá nhân của mình, hoặc muốn yêu cầu chỉnh sửa hoặc xóa thông tin đó, bạn cũng có thể gửi yêu cầu đến
+                <a href="mailto:weifu.ai.contact@gmail.com">weifu.ai.contact@gmail.com</a>.
+            </p>
+
+            <h2>Liên kết đến trang web khác</h2>
+
+            <p>
+                Dịch vụ này có thể chứa liên kết đến các trang web khác. Nếu bạn nhấp vào liên kết bên thứ ba, bạn sẽ được chuyển đến trang web của họ. Các trang web bên ngoài này không do chúng tôi vận hành. Do đó, chúng tôi khuyến nghị bạn xem kỹ chính sách quyền riêng tư của các trang đó. Chúng tôi không kiểm soát và không chịu trách nhiệm về nội dung, chính sách riêng tư hay hoạt động của bất kỳ trang web hoặc dịch vụ bên thứ ba nào.
+            </p>
+
+            <h2>Quyền của bạn</h2>
+
+            <p>Là người dùng ứng dụng, bạn có một số quyền liên quan đến thông tin cá nhân của mình, bao gồm:</p>
+
+            <p>1. Quyền được truy cập thông tin cá nhân mà chúng tôi lưu giữ về bạn.</p>
+            <p>2. Quyền yêu cầu chúng tôi sửa bất kỳ sai sót nào trong thông tin cá nhân mà chúng tôi lưu giữ.</p>
+            <p>3. Quyền yêu cầu chúng tôi xóa thông tin cá nhân của bạn, trừ khi chúng tôi được yêu cầu lưu giữ theo luật định.</p>
+            <p>4. Quyền phản đối việc xử lý thông tin cá nhân của bạn, bao gồm cho mục đích tiếp thị trực tiếp.</p>
+            <p>
+                5. Quyền yêu cầu chúng tôi cung cấp thông tin cá nhân của bạn ở dạng có cấu trúc, phổ biến và có thể đọc được bằng máy, và chuyển tiếp dữ liệu đó cho một đơn vị kiểm soát dữ liệu khác.
+            </p>
+
+            <p>
+                Để thực hiện bất kỳ quyền nào ở trên, vui lòng liên hệ với chúng tôi bằng thông tin trong chính sách quyền riêng tư này. Chúng tôi sẽ phản hồi yêu cầu của bạn sớm nhất có thể, và trong mọi trường hợp là trong thời hạn luật định. Chúng tôi có thể yêu cầu bạn cung cấp bằng chứng xác minh danh tính trước khi xử lý yêu cầu.
+            </p>
+
+            <p>
+                Lưu ý rằng chúng tôi có thể cần giữ lại một số thông tin cá nhân trong một khoảng thời gian nhất định để tuân thủ các nghĩa vụ pháp lý (như lưu trữ hồ sơ) và để hoàn tất các giao dịch mà bạn đã bắt đầu trước khi yêu cầu thay đổi hoặc xóa thông tin.
+            </p>
+
+            <h2>Quyền riêng tư của trẻ em</h2>
+
+            <p>
+                Ứng dụng của chúng tôi không dành cho trẻ em dưới 13 tuổi. Chúng tôi không cố ý thu thập thông tin cá nhân từ trẻ em dưới 13 tuổi. Nếu phát hiện đã vô tình thu thập thông tin cá nhân của trẻ dưới 13 tuổi, chúng tôi sẽ thực hiện các bước hợp lý để xóa thông tin đó sớm nhất có thể.
+            </p>
+
+            <p>
+                Nếu bạn là cha mẹ hoặc người giám hộ và tin rằng con bạn dưới 13 tuổi đã cung cấp thông tin cá nhân cho chúng tôi, vui lòng liên hệ với chúng tôi để chúng tôi có thể xóa thông tin đó.
+            </p>
+
+            <p>
+                Lưu ý: Giới hạn độ tuổi cụ thể trong điều khoản này có thể khác nhau tùy theo quốc gia hoặc khu vực mà bạn hoạt động, vì vậy hãy kiểm tra luật và quy định liên quan để đảm bảo tuân thủ.
+            </p>
+
+            <h2>Liên hệ với chúng tôi</h2>
+
+            <p>
+                Nếu bạn có bất kỳ câu hỏi hoặc thắc mắc nào về chính sách quyền riêng tư hoặc cách chúng tôi thu thập dữ liệu, vui lòng liên hệ với chúng tôi tại <a href="mailto:weifu.ai.contact@gmail.com">weifu.ai.contact@gmail.com</a>.
+            </p>
+
+            <h2>Thay đổi đối với Chính sách quyền riêng tư</h2>
+
+            <p>
+                Chúng tôi có thể cập nhật chính sách quyền riêng tư theo thời gian. Chúng tôi sẽ thông báo cho bạn về bất kỳ thay đổi nào bằng cách đăng bản cập nhật trong ứng dụng hoặc gửi email. Chúng tôi khuyến khích bạn thường xuyên xem lại trang này để nắm được các thông tin mới nhất về thực tiễn quyền riêng tư của chúng tôi.
+            </p>
+
+            <h2>Tuân thủ pháp luật và quy định</h2>
+
+            <p>
+                Chúng tôi tuân thủ tất cả các luật và quy định có liên quan, bao gồm Quy định Bảo vệ Dữ liệu Chung (GDPR) tại Liên minh Châu Âu và Đạo luật Quyền riêng tư Người tiêu dùng California (CCPA) tại California.
+            </p>
+
+        </div>
+
+        <!-- TERMS OF SERVICE -->
+        <div id="terms" class="tab-content">
+
+            <h1>Điều khoản dịch vụ</h1>
+
+            <h2>Giới thiệu</h2>
+            <p>
+                Chào mừng bạn đến với ứng dụng Call 4G/5G. Bằng việc sử dụng dịch vụ của chúng tôi, bạn đồng ý với các Điều khoản dịch vụ này (“Điều khoản”).
+                Vui lòng đọc kỹ trước khi sử dụng ứng dụng. Nếu bạn không đồng ý với các Điều khoản này, bạn phải ngừng sử dụng ứng dụng.
+            </p>
+
+            <h2>Thay đổi Điều khoản</h2>
+            <p>
+                Chúng tôi có quyền sửa đổi các Điều khoản này bất cứ lúc nào. Mọi thay đổi sẽ có hiệu lực ngay khi được đăng trong ứng dụng.
+                Bằng việc tiếp tục sử dụng Dịch vụ sau khi có sửa đổi, bạn được xem là đã chấp nhận các Điều khoản đã được cập nhật.
+                Bạn có trách nhiệm thường xuyên xem lại các Điều khoản này.
+            </p>
+
+            <h2>Điều kiện sử dụng</h2>
+            <p>
+                Bạn phải từ 13 tuổi trở lên mới được sử dụng ứng dụng Call 4G/5G. Nếu bạn dưới 18 tuổi, bạn chỉ được sử dụng ứng dụng
+                dưới sự giám sát của cha mẹ hoặc người giám hộ, đồng thời người đó cũng phải đồng ý bị ràng buộc bởi các Điều khoản này.
+            </p>
+
+            <h2>Quyền riêng tư</h2>
+            <p>
+                Chính sách Quyền riêng tư của chúng tôi mô tả cách chúng tôi thu thập, sử dụng và chia sẻ thông tin của bạn. Bằng việc sử dụng
+                ứng dụng Call 4G/5G, bạn đồng ý với việc chúng tôi thu thập và sử dụng dữ liệu cá nhân như được mô tả trong Chính sách Quyền riêng tư.
+            </p>
+
+            <h2>Hành vi người dùng</h2>
+            <p>Khi sử dụng ứng dụng Call 4G/5G, bạn đồng ý không:</p>
+            <ul>
+                <li>Tải lên hoặc truyền tải nội dung có tính xúc phạm, bất hợp pháp hoặc vi phạm quyền và lợi ích hợp pháp của người khác.</li>
+                <li>Gây cản trở hoặc làm gián đoạn hoạt động của ứng dụng, máy chủ hoặc mạng kết nối với ứng dụng.</li>
+                <li>Tham gia bất kỳ hoạt động nào vi phạm pháp luật địa phương, quốc gia hoặc quốc tế.</li>
+            </ul>
+
+            <h2>Quyền sở hữu trí tuệ</h2>
+            <p>
+                Tất cả nội dung được cung cấp thông qua ứng dụng, bao gồm nhưng không giới hạn ở video, hình ảnh và văn bản, thuộc quyền sở hữu
+                hoặc được cấp phép sử dụng cho ứng dụng Call 4G/5G. Bạn không được sửa đổi, sao chép, phân phối hoặc sử dụng bất kỳ phần nội dung nào
+                của ứng dụng cho mục đích thương mại nếu không có sự cho phép bằng văn bản của chúng tôi.
+            </p>
+
+            <h2>Thanh toán và mua hàng</h2>
+            <p>
+                Nếu bạn mua bất kỳ dịch vụ hoặc sản phẩm nào trong ứng dụng, bạn đồng ý cung cấp thông tin thanh toán chính xác.
+                Tất cả khoản thanh toán được xử lý thông qua các nhà cung cấp dịch vụ thanh toán bên thứ ba, và bạn đồng ý tuân theo
+                các điều khoản dịch vụ của họ.
+            </p>
+
+            <h2>Chấm dứt</h2>
+            <p>
+                Chúng tôi có thể tạm ngừng hoặc chấm dứt quyền truy cập của bạn vào ứng dụng bất cứ lúc nào, không cần thông báo trước,
+                nếu bạn có bất kỳ hành vi nào mà chúng tôi cho là vi phạm các Điều khoản này hoặc gây hại cho ứng dụng hay người dùng khác.
+            </p>
+
+            <h2>Giới hạn trách nhiệm</h2>
+            <p>
+                Ứng dụng được cung cấp theo nguyên tắc "nguyên trạng" và "tùy khả dụng" mà không có bất kỳ đảm bảo nào dưới mọi hình thức.
+            </p>
+            <p>
+                Chúng tôi không đảm bảo rằng ứng dụng sẽ hoạt động mà không có lỗi hoặc không bị gián đoạn.
+            </p>
+            <p>
+                Trong phạm vi tối đa được pháp luật cho phép, Call 4G/5G miễn trừ mọi trách nhiệm đối với bất kỳ thiệt hại nào phát sinh từ việc bạn sử dụng ứng dụng,
+                bao gồm nhưng không giới hạn ở thiệt hại trực tiếp, gián tiếp hoặc ngẫu nhiên.
+            </p>
+
+            <h2>Bồi thường</h2>
+            <p>
+                Bạn đồng ý bồi thường và giữ cho Call 4G/5G không bị thiệt hại khỏi mọi khiếu nại, yêu cầu, tổn thất, trách nhiệm hoặc chi phí
+                phát sinh từ việc bạn vi phạm các Điều khoản này hoặc từ việc bạn sử dụng ứng dụng.
+            </p>
+
+            <h2>Dịch vụ bên thứ ba</h2>
+            <p>
+                Ứng dụng Call 4G/5G có thể tích hợp với các dịch vụ bên thứ ba như Facebook, Google hoặc Apple để phân tích và cung cấp các tính năng khác.
+                Việc bạn sử dụng các dịch vụ bên thứ ba này sẽ tuân theo điều khoản và chính sách riêng của từng bên.
+            </p>
+
+            <h2>Luật điều chỉnh</h2>
+            <p>
+                Các Điều khoản này được điều chỉnh và giải thích theo luật hiện hành của khu vực pháp lý nơi người dùng cư trú hoặc quốc gia
+                mà từ đó người dùng truy cập Dịch vụ, cũng như các luật và quy định quốc tế có liên quan.
+                Mọi tranh chấp phát sinh từ hoặc liên quan đến các Điều khoản này sẽ thuộc thẩm quyền không độc quyền của tòa án tại khu vực
+                pháp lý của người dùng, trừ khi luật quốc tế có quy định khác.
+            </p>
+
+            <p>
+                Trong trường hợp xảy ra tranh chấp xuyên biên giới, các bên đồng ý giải quyết tranh chấp theo các quy tắc được thiết lập
+                bởi Công ước Liên Hợp Quốc về Hợp đồng Mua bán Hàng hóa Quốc tế (CISG) hoặc bất kỳ điều ước quốc tế có liên quan nào khác
+                điều chỉnh việc sử dụng các dịch vụ số.
+            </p>
+
+            <h2>Liên hệ với chúng tôi</h2>
+            <p>
+                Nếu bạn có bất kỳ câu hỏi hoặc thắc mắc nào liên quan đến các Điều khoản này, bạn có thể liên hệ với chúng tôi tại
+                <a href="mailto:call4g5g.contact@gmail.com">call4g5g.contact@gmail.com</a>.
+            </p>
+
+        </div>
+    </main>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuButton = document.getElementById("menuButton");
+        const sidePanel = document.getElementById("sidePanel");
+        const sideOverlay = document.getElementById("sideOverlay");
+        const menuItems = sidePanel.querySelectorAll(".side-item");
+        const sections = document.querySelectorAll(".tab-content");
+
+        function openPanel() {
+            sidePanel.classList.add("open");
+            sideOverlay.classList.add("visible");
+        }
+
+        function closePanel() {
+            sidePanel.classList.remove("open");
+            sideOverlay.classList.remove("visible");
+        }
+
+        menuButton.addEventListener("click", () => {
+            if (sidePanel.classList.contains("open")) {
+                closePanel();
+            } else {
+                openPanel();
+            }
+        });
+
+        sideOverlay.addEventListener("click", closePanel);
+
+        menuItems.forEach(item => {
+            item.addEventListener("click", () => {
+                const targetId = item.dataset.target;
+
+                // Active state cho menu
+                menuItems.forEach(i => i.classList.remove("active"));
+                item.classList.add("active");
+
+                // Đổi nội dung
+                sections.forEach(sec => {
+                    sec.classList.toggle("active", sec.id === targetId);
+                });
+
+                // Cuộn lên đầu
+                window.scrollTo({ top: 0, behavior: "instant" });
+
+                // Đóng panel
+                closePanel();
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

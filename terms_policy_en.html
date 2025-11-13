@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Terms & Policy</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000;
+            line-height: 1.55;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-bottom: 24px;
+            box-sizing: border-box;
+        }
+
+        /* TOP BAR */
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            height: 44px;
+            padding: 0 12px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .topbar-title {
+            font-size: 15px;
+            font-weight: 400;
+            color: #333;
+        }
+
+        /* ICON HAMBURGER */
+        .menu-button {
+            width: 28px;
+            height: 28px;
+            border: none;
+            background: transparent;
+            padding: 0;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-icon {
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 3px;
+        }
+
+        .menu-icon span {
+            display: block;
+            width: 16px;
+            height: 2px;
+            background-color: #333;
+        }
+
+        .menu-button:focus {
+            outline: none;
+        }
+
+        /* SIDE PANEL + OVERLAY */
+        .side-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.25);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+            z-index: 999;
+        }
+
+        .side-overlay.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .side-panel {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 260px;
+            max-width: 80%;
+            background: #ffffff;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+
+            transform: translateX(-100%);
+            transition: transform 0.25s ease;
+            z-index: 1000;
+
+            padding-top: 44px; /* chừa chỗ cho thanh status/nav */
+        }
+
+        .side-panel.open {
+            transform: translateX(0);
+        }
+
+        .side-item {
+            width: 100%;
+            padding: 10px 16px;
+            font-size: 15px;
+            text-align: left;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .side-item + .side-item {
+            border-top: 1px solid #f2f2f2;
+        }
+
+        .side-item.active {
+            font-weight: 600;
+            background: #f5f5f5;
+        }
+
+        .side-item:focus {
+            outline: none;
+        }
+
+        /* CONTENT */
+        .content {
+            padding: 16px;
+        }
+
+        h1 {
+            text-align: left;
+            font-size: 24px;
+            font-weight: 600;
+            margin: 16px 0 24px;
+        }
+
+        h2 {
+            font-size: 19px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 8px;
+        }
+
+        h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 6px;
+        }
+
+        p, li {
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-top: 6px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- SIDE PANEL & OVERLAY -->
+<div class="side-panel" id="sidePanel">
+    <button class="side-item active" data-target="privacy">Privacy Policy</button>
+    <button class="side-item" data-target="terms">Terms of Service</button>
+</div>
+<div class="side-overlay" id="sideOverlay"></div>
+
+<div class="page">
+    <!-- TOP BAR -->
+    <header class="topbar">
+        <button class="menu-button" id="menuButton" aria-label="Mở menu">
+            <div class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+        <div class="topbar-title">Call 4G/5G</div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+        <!-- PRIVACY POLICY -->
+        <div id="privacy" class="tab-content active">
+
+            <h1>Privacy Policy</h1>
+
+            <p>
+                <strong>Call 4G/5G</strong> ("we," "our," or "us") is committed to protecting the privacy of our users.
+                This privacy policy explains how we collect, use, store, and share personal information collected through our mobile app.
+            </p>
+
+            <h2>Personal Information We Collect</h2>
+            <p>We may collect the following personal information from our users:</p>
+
+            <p>
+                1. Device information: information about the device that the user is using to access the app, such as the make and model of the device, the operating system and version, and the device ID. This information can help us optimize the app's performance and compatibility for different devices.
+            </p>
+
+            <p>
+                2. Log information: When you use our product and service or view the content provided by us, we automatically collect and store certain information in server logs. Such as the date and time of access, the pages or screens viewed, and the actions taken within the app. This information can help us understand how users are interacting with our app and identify any issues or bugs.
+            </p>
+
+            <p>
+                3. Information from third-party:
+            </p>
+
+            <p>
+                a. Third-party account information: if you use the account of a third party (such as Facebook/Google/Apple ID) to log into our services, we will obtain your account information from such platforms. This information can be used to create an account, so you can log in directly.
+            </p>
+
+            <p>
+                b. Third-party payment agency information: if you purchase in our app, the third-party payment service providers working with us (such as Apple Pay, Google Pay) will provide us with your payment information or its updated information, so as to verify your payment status and proceed with your paid services. Please note that we collect only the information of your purchased product, payment serial number and channel ID, we don't collect your bank account number, password or other payment information.
+            </p>
+
+            <h2>How We Collect Personal Information</h2>
+
+            <p>We collect personal information when users:</p>
+
+            <p>1. Register for an account.</p>
+            <p>2. Use our app's features and services.</p>
+            <p>3. Submit feedback or support requests.</p>
+            <p>4. Participate in surveys or promotions.</p>
+
+            <p>We may also collect personal information through cookies and other tracking technologies.</p>
+
+            <h2>How We Use Personal Information</h2>
+
+            <p>We use personal information for the following purposes:</p>
+
+            <p>1. To improve our app's features and services.</p>
+            <p>2. To allow you purchase products and services.</p>
+            <p>3. To handle your registration and log-in request.</p>
+            <p>4. To communicate with users about updates and new features.</p>
+            <p>5. To respond to user inquiries and support requests.</p>
+            <p>6. To comply with legal obligations.</p>
+
+            <h2>How We Store and Protect Personal Information</h2>
+
+            <p>
+                We store personal information on secure servers and take reasonable measures to protect against unauthorized access, use, or disclosure. We retain personal information for as long as necessary to fulfill the purposes for which it was collected or as required by law.
+            </p>
+
+            <h2>How We Share Personal Information</h2>
+
+            <p>We may share personal information with the following third-party partners:</p>
+
+            <p>1. Service providers that help us operate and improve our app.</p>
+            <p>2. Advertisers that provide personalized ads to user.</p>
+            <p>3. Analytics providers that help us understand app usage.</p>
+
+            <p>
+                If you use such services provided by third parties on our platform, you agree to its direct collection and processing of your information. The collection and processing of information by such providers follow its own privacy provision as below:
+            </p>
+
+            <p>
+                1. Facebook: Third-party Login. Link policy:
+                <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener noreferrer">
+                    https://www.facebook.com/privacy/policy
+                </a>.
+            </p>
+            <p>
+                2. Google: Third-party Login. Link policy:
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+                    https://policies.google.com/privacy
+                </a>.
+            </p>
+            <p>
+                3. Apple: Third-party Login. Link policy:
+                <a href="https://www.apple.com/legal/privacy/en-ww/" target="_blank" rel="noopener noreferrer">
+                    https://www.apple.com/legal/privacy/en-ww/
+                </a>.
+            </p>
+            <p>
+                4. Firebase: Third-party Data analysis. Link policy:
+                <a href="https://firebase.google.com/terms/" target="_blank" rel="noopener noreferrer">
+                    https://firebase.google.com/terms/
+                </a>.
+            </p>
+            <p>
+                5. AppsFlyer: Third-party Data analysis. Link policy:
+                <a href="https://www.appsflyer.com/privacy-policy/" target="_blank" rel="noopener noreferrer">
+                    https://www.appsflyer.com/privacy-policy/
+                </a>.
+            </p>
+
+            <p>
+                We will also do our best in examining the access qualifications of such third-party partners and impose lawful, compliant and secure requirements thereon. To protect your information security to the maximum, we strongly recommend you to read their privacy provisions.
+            </p>
+
+            <p>
+                We may also share personal information if required by law or to protect our legal rights or the rights of our users.
+            </p>
+
+            <h2>Accessing and Deleting Your Information</h2>
+
+            <p>
+                You may deactivate your account or delete email associate with your account by contacting us at
+                <a href="mailto:weifu.ai.contact@gmail.com">weifu.ai.contact@gmail.com</a>.
+            </p>
+
+            <p>
+                If you would like to access or view the personal information we hold about you or for any reason you are concerned with the way we are using your personal information, or would like to correct or request that we delete such personal information, you can also send your request to us at
+                <a href="mailto:weifu.ai.contact@gmail.com">weifu.ai.contact@gmail.com</a>.
+            </p>
+
+            <h2>Links to Other Sites</h2>
+
+            <p>
+                This Service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by us. Therefore, we strongly advise you to review the Privacy Policy of these websites. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.
+            </p>
+
+            <h2>Your Rights</h2>
+
+            <p>As a user of our app, you have certain rights with respect to your personal information, including:</p>
+
+            <p>1. The right to access the personal information we hold about you.</p>
+            <p>2. The right to request that we correct any inaccuracies in the personal information we hold about you.</p>
+            <p>3. The right to request that we delete your personal information, except where we are required to retain it by law.</p>
+            <p>4. The right to object to the processing of your personal information, including for direct marketing purposes.</p>
+            <p>
+                5. The right to request that we provide your personal information to you in a structured, commonly used and machine-readable format, and to transmit that data to another data controller.
+            </p>
+
+            <p>
+                To exercise any of these rights, please contact us using the contact details provided in this privacy policy. We will respond to your request as soon as reasonably possible, and in any case within the time limits prescribed by law. We may request proof of your identity before processing your request.
+            </p>
+
+            <p>
+                Please note that we may need to retain certain personal information for a period of time in order to comply with our legal obligations, such as record keeping obligations, and to complete any transactions that you began prior to requesting a change or deletion.
+            </p>
+
+            <h2>Children’s Privacy</h2>
+
+            <p>
+                Our app is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If we become aware that we have inadvertently collected personal information from a child under 13, we will take reasonable steps to delete that information as soon as possible.
+            </p>
+
+            <p>
+                If you are a parent or guardian and you believe that your child under the age of 13 has provided us with personal information, please contact us so that we can take steps to delete such information.
+            </p>
+
+            <p>
+                Note: The specific age limit mentioned in this clause may vary depending on the country or region where you operate, so it's important to check the relevant laws and regulations to ensure compliance.
+            </p>
+
+            <h2>Contact Us</h2>
+
+            <p>
+                If you have any questions or concerns about our privacy policy or data collection practices, please contact us at <a href="mailto:weifu.ai.contact@gmail.com">weifu.ai.contact@gmail.com</a>.
+            </p>
+
+            <h2>Changes to Privacy Policy</h2>
+
+            <p>
+                We may update our privacy policy from time to time. We will notify you of any changes by posting the updated terms on our app or by sending you an email. We encourage you to periodically review this page for the latest information on our privacy practices.
+            </p>
+
+            <h2>Compliance with Laws and Regulations</h2>
+
+            <p>
+                We comply with all relevant laws and regulations, including the General Data Protection Regulation (GDPR) in the European Union and the California Consumer Privacy Act (CCPA) in California.
+            </p>
+
+        </div>
+
+        <!-- TERMS OF SERVICE -->
+        <div id="terms" class="tab-content">
+
+            <h1>Terms of Service</h1>
+
+            <h2>Introduction</h2>
+            <p>
+                Welcome to the Call 4G/5G application. By using our services, you agree to these Terms of Service (“Terms”). 
+                Please read them carefully before using the app. If you do not agree with these Terms, you must stop using the app.
+            </p>
+
+            <h2>Changes to the Terms</h2>
+            <p>
+                We reserve the right to modify these Terms at any time. Any changes will be effective immediately upon being 
+                posted within the app. By continuing to use the Service after modifications, you accept the revised Terms. 
+                It is your responsibility to review these Terms periodically.
+            </p>
+
+            <h2>Eligibility</h2>
+            <p>
+                You must be at least 13 years old to use Call 4G/5G application. If you are under 18, you may only use the app 
+                under the supervision of a parent or guardian who agrees to be bound by these Terms.
+            </p>
+
+            <h2>Privacy</h2>
+            <p>
+                Our Privacy Policy outlines how we collect, use, and share your information. By using Call 4G/5G application, 
+                you consent to our collection and use of personal data as described in our Privacy Policy.
+            </p>
+
+            <h2>User Conduct</h2>
+            <p>When using Call 4G/5G application, you agree not to:</p>
+            <ul>
+                <li>Upload or transmit content that is offensive, illegal, or violates the rights of others.</li>
+                <li>Interfere with or disrupt the app's functioning, or servers or networks connected to the app.</li>
+                <li>Engage in any activity that violates local, national, or international laws.</li>
+            </ul>
+
+            <h2>Intellectual Property</h2>
+            <p>
+                All content provided through the app, including videos, images, and text, is owned or licensed by Call 4G/5G application. 
+                You may not modify, reproduce, distribute, or otherwise use any part of the app's content for commercial purposes 
+                without our express permission.
+            </p>
+
+            <h2>Payments and Purchases</h2>
+            <p>
+                If you purchase any services or products within the app, you agree to provide accurate payment details. 
+                All payments are processed through third-party payment providers, and you agree to abide by their terms of service.
+            </p>
+
+            <h2>Termination</h2>
+            <p>
+                We may suspend or terminate your access to the app at any time without notice for any conduct that we deem violates 
+                these Terms or is otherwise harmful to the app or its users.
+            </p>
+
+            <h2>Limitation of Liability</h2>
+            <p>
+                The app is provided "as is" and "as available" without warranties of any kind.
+            </p>
+            <p>
+                We do not guarantee that the app will function without errors or interruptions.
+            </p>
+            <p>
+                To the fullest extent permitted by law, Call 4G/5G disclaims liability for any damages arising from your use of the app, 
+                including direct, indirect, or incidental damages.
+            </p>
+
+            <h2>Indemnification</h2>
+            <p>
+                You agree to indemnify and hold Call 4G/5G harmless from any claims, damages, or liabilities arising from your violation 
+                of these Terms or your use of the app.
+            </p>
+
+            <h2>Third-Party Services</h2>
+            <p>
+                Call 4G/5G application may integrate with third-party services such as Facebook, Google, or Apple for analytic and other 
+                functionalities. Your use of these third-party services is subject to their respective terms and policies.
+            </p>
+
+            <h2>Governing Law</h2>
+            <p>
+                These Terms are governed by and construed in accordance with the applicable laws of the jurisdiction in which the user 
+                resides or the country from which they access the Service, as well as relevant international laws and regulations. 
+                Any disputes arising out of or in connection with these Terms will be subject to the non-exclusive jurisdiction of the 
+                courts located in the user’s jurisdiction, unless otherwise mandated by applicable international law.
+            </p>
+
+            <p>
+                In the case of cross-border disputes, the parties agree to resolve such disputes in accordance with the rules established 
+                by the United Nations Convention on Contracts for the International Sale of Goods (CISG) or any other applicable 
+                international treaties governing the use of digital services.
+            </p>
+
+            <h2>Contact Us</h2>
+            <p>
+                For any questions or concerns regarding these Terms, you may contact us at 
+                <a href="mailto:call4g5g.contact@gmail.com">call4g5g.contact@gmail.com</a>.
+            </p>
+
+        </div>
+    </main>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuButton = document.getElementById("menuButton");
+        const sidePanel = document.getElementById("sidePanel");
+        const sideOverlay = document.getElementById("sideOverlay");
+        const menuItems = sidePanel.querySelectorAll(".side-item");
+        const sections = document.querySelectorAll(".tab-content");
+
+        function openPanel() {
+            sidePanel.classList.add("open");
+            sideOverlay.classList.add("visible");
+        }
+
+        function closePanel() {
+            sidePanel.classList.remove("open");
+            sideOverlay.classList.remove("visible");
+        }
+
+        menuButton.addEventListener("click", () => {
+            if (sidePanel.classList.contains("open")) {
+                closePanel();
+            } else {
+                openPanel();
+            }
+        });
+
+        sideOverlay.addEventListener("click", closePanel);
+
+        menuItems.forEach(item => {
+            item.addEventListener("click", () => {
+                const targetId = item.dataset.target;
+
+                // Active state cho menu
+                menuItems.forEach(i => i.classList.remove("active"));
+                item.classList.add("active");
+
+                // Đổi nội dung
+                sections.forEach(sec => {
+                    sec.classList.toggle("active", sec.id === targetId);
+                });
+
+                // Cuộn lên đầu
+                window.scrollTo({ top: 0, behavior: "instant" });
+
+                // Đóng panel
+                closePanel();
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
