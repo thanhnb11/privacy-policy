@@ -61,19 +61,8 @@
             justify-content: center;
         }
 
-        .menu-icon {
-            display: inline-flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 4px;
-        }
-
-        .menu-icon span {
+        .menu-button svg {
             display: block;
-            width: 22px;
-            height: 2.5px;
-            background-color: #333;
-            border-radius: 1px;
         }
 
         .menu-button:focus {
@@ -203,7 +192,7 @@
     <!-- TOP BAR -->
     <header class="topbar">
         <button class="menu-button" id="menuButton" aria-label="Mở menu">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round">
                 <line x1="3" y1="6" x2="21" y2="6"/>
                 <line x1="3" y1="12" x2="21" y2="12"/>
                 <line x1="3" y1="18" x2="21" y2="18"/>
@@ -521,7 +510,7 @@
             sideOverlay.classList.remove("visible");
         }
 
-        menuButton.addEventListener("click", () => {
+        menuButton.addEventListener("click", function() {
             if (sidePanel.classList.contains("open")) {
                 closePanel();
             } else {
@@ -529,21 +518,35 @@
             }
         });
 
+        menuButton.addEventListener("touchstart", function(e) {
+            e.preventDefault();
+            if (sidePanel.classList.contains("open")) {
+                closePanel();
+            } else {
+                openPanel();
+            }
+        }, { passive: false });
+
+        // Overlay - đóng panel khi tap ra ngoài
         sideOverlay.addEventListener("click", closePanel);
+        
         sideOverlay.addEventListener("touchstart", function(e) {
             e.preventDefault();
             closePanel();
-        });
+        }, { passive: false });
 
+        // Panel - ngăn không đóng khi tap vào trong panel
         sidePanel.addEventListener("touchstart", function(e) {
             e.stopPropagation();
         });
+        
         sidePanel.addEventListener("click", function(e) {
             e.stopPropagation();
         });
 
+        // Menu items - chuyển tab và đóng panel
         menuItems.forEach(item => {
-            item.addEventListener("click", () => {
+            item.addEventListener("click", function() {
                 const targetId = item.dataset.target;
 
                 // Active state cho menu
